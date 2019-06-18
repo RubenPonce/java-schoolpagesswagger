@@ -34,10 +34,10 @@ public class StudentServiceImpl implements StudentService
     }
 
     @Override
-    public List<Student> findStudentByNameLike(String name)
+    public List<Student> findStudentByNameLike(String name, Pageable pagable)
     {
         List<Student> list = new ArrayList<>();
-        studrepos.findByStudnameContainingIgnoreCase(name).iterator().forEachRemaining(list::add);
+        studrepos.findByStudnameContainingIgnoreCase(name, pagable).iterator().forEachRemaining(list::add);
         return list;
     }
 
